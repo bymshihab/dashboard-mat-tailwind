@@ -1,5 +1,12 @@
 # Dashboard
 
+Making project with this command
+```
+npx @angular/cli@18 new project_Name
+
+```
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.19.
 
 ## Development server
