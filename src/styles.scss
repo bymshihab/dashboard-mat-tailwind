@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+/* Load Material theme first - @use rules must come before any other rules */
+@use './styles/material-theme.scss';
+
+/* Load Tailwind CSS - using import for v4 */
+@import "tailwindcss";
+
+/* Global styles */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+

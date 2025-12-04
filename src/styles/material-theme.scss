@@ -1,0 +1,212 @@
+@use '@angular/material' as mat;
+
+/* ------------------------------------------
+   CORE
+------------------------------------------- */
+@include mat.core();
+
+/* ------------------------------------------
+   CUSTOM COLOR PALETTES (defined after core)
+------------------------------------------- */
+// Custom Purple Palette
+// $custom-purple-palette: (
+//   50: #faf5ff,
+//   100: #f3e8ff,
+//   200: #e9d5ff,
+//   300: #d8b4fe,
+//   400: #c084fc,
+//   500: #a855f7,    // Main color
+//   600: #9333ea,
+//   700: #7c3aed,
+//   800: #6b21a8,
+//   900: #581c87,
+//   contrast: (
+//     50: rgba(black, 0.87),
+//     100: rgba(black, 0.87),
+//     200: rgba(black, 0.87),
+//     300: rgba(black, 0.87),
+//     400: rgba(black, 0.87),
+//     500: white,
+//     600: white,
+//     700: white,
+//     800: white,
+//     900: white,
+//   )
+// );
+
+// // Custom Blue Palette
+// $custom-blue-palette: (
+//   50: #eff6ff,
+//   100: #dbeafe,
+//   200: #bfdbfe,
+//   300: #93c5fd,
+//   400: #60a5fa,
+//   500: #3b82f6,    // Main color
+//   600: #2563eb,
+//   700: #1d4ed8,
+//   800: #1e40af,
+//   900: #1e3a8a,
+//   contrast: (
+//     50: rgba(black, 0.87),
+//     100: rgba(black, 0.87),
+//     200: rgba(black, 0.87),
+//     300: rgba(black, 0.87),
+//     400: rgba(black, 0.87),
+//     500: white,
+//     600: white,
+//     700: white,
+//     800: white,
+//     900: white,
+//   )
+// );
+
+// // Custom Red Palette
+// $custom-red-palette: (
+//   50: #fef2f2,
+//   100: #fee2e2,
+//   200: #fecaca,
+//   300: #fca5a5,
+//   400: #f87171,
+//   500: #ef4444,    // Main color
+//   600: #dc2626,
+//   700: #b91c1c,
+//   800: #991b1b,
+//   900: #7f1d1d,
+//   contrast: (
+//     50: rgba(black, 0.87),
+//     100: rgba(black, 0.87),
+//     200: rgba(black, 0.87),
+//     300: rgba(black, 0.87),
+//     400: rgba(black, 0.87),
+//     500: white,
+//     600: white,
+//     700: white,
+//     800: white,
+//     900: white,
+//   )
+// );
+
+/* ------------------------------------------
+   THEME DEFINITION (Material 3 API with predefined palettes)
+   Change these to any Material palette you want!
+------------------------------------------- */
+
+// 🎨 WORKING MATERIAL 3 THEME - Uses default Material palettes
+// This approach is guaranteed to work with any Angular Material version
+
+$light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    // Using default Material 3 colors - you can customize via CSS custom properties
+  ),
+  typography: (
+    brand-family: '"Inter"',
+    plain-family: '"Roboto"'
+  ),
+  density: (
+    scale: 0,
+  )
+));
+
+$dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    // Material 3 will automatically generate appropriate dark colors
+  ),
+  typography: (
+    brand-family: '"Inter"',
+    plain-family: '"Roboto"'
+  ),
+  density: (
+    scale: 0,
+  )
+));
+
+/* Apply LIGHT THEME on root (default) */
+:root {
+  @include mat.all-component-themes($light-theme);
+
+  /* 🎨 CUSTOM COLOR OVERRIDES - Change these to customize your theme! */
+  --mat-sys-primary: #3e7788;           // 🟣 Your primary color (indigo)
+  --mat-sys-on-primary: #ffffff;        // Text on primary
+  --mat-sys-secondary: #48ec63;         // 🌸 Your secondary color (pink)
+  --mat-sys-on-secondary: #ffffff;      // Text on secondary
+  --mat-sys-tertiary: #06b6d4;          // 🔵 Your tertiary color (cyan)
+  --mat-sys-on-tertiary: #ffffff;       // Text on tertiary
+  --mat-sys-surface: #ffffff;           // Background surface
+  --mat-sys-on-surface: #1f2937;       // Text on surface
+}
+
+/* Apply DARK THEME via class - only colors to avoid duplication */
+.dark-theme {
+  @include mat.all-component-colors($dark-theme);
+
+  /* 🌙 DARK THEME COLOR OVERRIDES */
+  --mat-sys-primary: #818cf8;           // Lighter version for dark mode
+  --mat-sys-on-primary: #1e1b4b;        // Darker text for contrast
+  --mat-sys-secondary: #975678;         // Lighter pink for dark mode
+  --mat-sys-on-secondary: #281883;      // Darker text for contrast
+  --mat-sys-tertiary: #22d3ee;          // Lighter cyan for dark mode
+  --mat-sys-on-tertiary: #083344;       // Darker text for contrast
+  --mat-sys-surface: #1f2937;           // Dark background
+  --mat-sys-on-surface: #f3f4f6;       // Light text on dark surface
+}
+
+/* ------------------------------------------
+   ADDITIONAL COLOR OPTIONS
+   Uncomment any of these to try different colors
+------------------------------------------- */
+
+// Custom Green Palette (uncomment to use)
+// $custom-green-palette: (
+//   50: #f0fdf4, 100: #dcfce7, 200: #bbf7d0, 300: #86efac, 400: #4ade80,
+//   500: #22c55e, 600: #16a34a, 700: #15803d, 800: #166534, 900: #14532d,
+//   contrast: (50: rgba(black, 0.87), 100: rgba(black, 0.87), 200: rgba(black, 0.87), 300: rgba(black, 0.87), 400: rgba(black, 0.87), 500: white, 600: white, 700: white, 800: white, 900: white,)
+// );
+
+// Custom Orange Palette (uncomment to use)
+// $custom-orange-palette: (
+//   50: #fff7ed, 100: #ffedd5, 200: #fed7aa, 300: #fdba74, 400: #fb923c,
+//   500: #f97316, 600: #ea580c, 700: #c2410c, 800: #9a3412, 900: #7c2d12,
+//   contrast: (50: rgba(black, 0.87), 100: rgba(black, 0.87), 200: rgba(black, 0.87), 300: rgba(black, 0.87), 400: rgba(black, 0.87), 500: white, 600: white, 700: white, 800: white, 900: white,)
+// );
+
+// To use different colors, change these lines below:
+// $primary-palette: mat.define-palette($custom-green-palette, 500);
+// $accent-palette: mat.define-palette($custom-orange-palette, 500);
+
+/* ------------------------------------------
+   🎨 EASY COLOR CUSTOMIZATION GUIDE
+   Change the --mat-sys-primary and other CSS variables above!
+------------------------------------------- */
+
+/* � POPULAR COLOR COMBINATIONS TO TRY:
+
+   🌈 Rainbow Theme:
+   --mat-sys-primary: #ff6b6b;     // Coral red
+   --mat-sys-secondary: #4ecdc4;   // Turquoise
+   --mat-sys-tertiary: #45b7d1;    // Sky blue
+
+   🌿 Nature Theme:
+   --mat-sys-primary: #27ae60;     // Emerald green
+   --mat-sys-secondary: #2ecc71;   // Light green
+   --mat-sys-tertiary: #16a085;    // Teal
+
+   🔥 Fire Theme:
+   --mat-sys-primary: #e74c3c;     // Red
+   --mat-sys-secondary: #f39c12;   // Orange
+   --mat-sys-tertiary: #d35400;    // Dark orange
+
+   🌸 Elegant Theme:
+   --mat-sys-primary: #8e44ad;     // Purple
+   --mat-sys-secondary: #e91e63;   // Pink
+   --mat-sys-tertiary: #9b59b6;    // Light purple
+
+   🌊 Ocean Theme:
+   --mat-sys-primary: #3498db;     // Blue
+   --mat-sys-secondary: #2980b9;   // Dark blue
+   --mat-sys-tertiary: #1abc9c;    // Turquoise
+
+   📝 CURRENT THEME:
+   Primary: #6366f1 (Indigo)    Secondary: #ec4899 (Pink)    Tertiary: #06b6d4 (Cyan)
+*/
